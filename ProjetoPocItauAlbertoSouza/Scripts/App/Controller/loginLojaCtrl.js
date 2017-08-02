@@ -9,19 +9,19 @@
             email: $scope.email,
             senha: $scope.senha
         };
-        usuarioService.Login(model, function (_a, _b)
-        {
-            console.log(_a);
-            console.log(_b);
+        usuarioService.Login(model, function ($result) {
+            console.log($result);
+
+            $scope.senha = null;
+            $scope.email = null;
+
+
+            $('.dropdown', document).click();
+            $scope.usuarioLogado = true;
+
         }, function (ex) {
             console.log(ex);
         });
-
-        $scope.senha = null;
-        $scope.email = null;
-
-        $('.dropdown', document).click();
-        $scope.usuarioLogado = true;
     };
     $scope.Logoff = function ($event) {
 
