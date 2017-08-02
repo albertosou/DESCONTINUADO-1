@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html ng-app="pocApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body ng-controller="mainCtrl">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("PROVA DE CONCEITO", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Loja", "Index", "Loja", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Admin", "Index", "Admin", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Sobre", "Index", "Sobre", new { area = "" }, null)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Desenvolvido por Alberto Silva Souza</p>
+        </footer>
+    </div>
+
+    <div class="container">
+
+        <button type="button" class="btn btn-default" ng-click="showModal()">ShowModal</button>
+        <!-- Modal -->
+        <div class="modal fade" id="pocModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">{{Config.TituloModal}}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{Config.MensagemModal}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="Config.OK()">OK</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angularjs")
+    @Scripts.Render("~/bundles/angularjs_app")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
