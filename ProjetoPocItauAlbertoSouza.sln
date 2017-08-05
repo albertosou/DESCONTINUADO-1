@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoPocItauAlbertoSouza"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoPocItauAlbertoSouza.Model", "ProjetoPocItauAlbertoSouza.Model\ProjetoPocItauAlbertoSouza.Model.csproj", "{AB5787C2-DDF2-443D-B4CE-08DFA12B7533}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoPocItauAlbertoSouza.DAL", "ProjetoPocItauAlbertoSouza.DAL\ProjetoPocItauAlbertoSouza.DAL.csproj", "{08A8EEA9-8FF8-4C5F-B39B-814ED244877F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoPocItauAlbertoSouza.BLL", "ProjetoPocItauAlbertoSouza.BLL\ProjetoPocItauAlbertoSouza.BLL.csproj", "{CFD5B50A-353A-4590-B9BB-21FA45813091}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{AB5787C2-DDF2-443D-B4CE-08DFA12B7533}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB5787C2-DDF2-443D-B4CE-08DFA12B7533}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB5787C2-DDF2-443D-B4CE-08DFA12B7533}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08A8EEA9-8FF8-4C5F-B39B-814ED244877F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08A8EEA9-8FF8-4C5F-B39B-814ED244877F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08A8EEA9-8FF8-4C5F-B39B-814ED244877F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08A8EEA9-8FF8-4C5F-B39B-814ED244877F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFD5B50A-353A-4590-B9BB-21FA45813091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFD5B50A-353A-4590-B9BB-21FA45813091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFD5B50A-353A-4590-B9BB-21FA45813091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD5B50A-353A-4590-B9BB-21FA45813091}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

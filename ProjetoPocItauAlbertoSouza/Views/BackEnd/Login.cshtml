@@ -1,5 +1,23 @@
 ﻿<div ng-controller="loginAdminCtrl">
-    <div>
-        {{nomeUsuario}} {{semUsuario}}
+    <div class="row" ng-show="AdminLogado == false">
+        <div class="col-md-12">
+            <form class="form" role="form" accept-charset="UTF-8" id="login-nav" ng-submit="Login()">
+                <!-- VISAO DESLOGADO -->
+                <div class="form-group">
+                    <label class="sr-only" for="txtEmailLogin">Login</label>
+                    <input type="email" class="form-control" id="txtEmailLogin" placeholder="Endereço de e-mail" required ng-model="Email">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="txtSenhaLogin">Senha</label>
+                    <input type="password" class="form-control" id="txtSenhaLogin" placeholder="Senha" required ng-model="Senha">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block" data-dismiss="modal">Entrar</button>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary btn-block" data-dismiss="modal" ng-click="NovoCliente()">Cliente novo? Cadastrar</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

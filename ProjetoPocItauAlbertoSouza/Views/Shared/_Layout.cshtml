@@ -54,8 +54,10 @@
                         <p>{{Config.MensagemModal}}</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="Config.OK()">OK</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-show="Config.Cancelar != null" ng-click="Config.Cancelar()">Cancelar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-show="Config.OK != null" ng-click="Config.OK()">OK</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-show="Config.Sim != null" ng-click="Config.Sim()">Sim</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-show="Config.Nao != null" ng-click="Config.Nao()">Não</button>
                     </div>
                 </div>
 
@@ -67,6 +69,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/angularjs")
     @Scripts.Render("~/bundles/angularjs_app")
+    @Scripts.Render("~/bundles/js")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

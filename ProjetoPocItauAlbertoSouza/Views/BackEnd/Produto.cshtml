@@ -1,0 +1,89 @@
+﻿@model ProjetoPocItauAlbertoSouza.Model.Produto
+@if (Model == null)
+{
+    <div ng-controller="produtoCtrl" ng-init="Load()">
+        <p>
+            <input type="button" id="btnNovoProduto" ng-click="Novo()" value="Novo" class="btn btn-primary btn-lg" />
+            <input type="button" id="btnNovoProduto" ng-click="Atualizar()" value="Atualizar" class="btn btn-primary btn-lg" />
+        </p>
+
+        <span style="display:none">
+            <input type="text" ng-model="IdProduto" id="produtoCtrl_IdProduto" />
+            <input type="button" id="produtoCtrl_Editar" ng-click="Editar()" />
+            <input type="button" id="produtoCtrl_Excluir" ng-click="Excluir()" />
+        </span>
+        <div id="jqgrid_container">
+            <table id="jqGrid"></table>
+            <div id="jqGridPager"></div>
+        </div>
+
+        <div class="modal fade row" id="registro-produto-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="registromodal-container">
+                    <h1>Cadastro de Produto</h1><br>
+                    <form class="form" role="form" accept-charset="UTF-8" id="cadastro-produto" ng-submit="Salvar()">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="nomeProduto" name="nomeProduto" placeholder="Nome produto" required ng-model="Nome" />
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="estoqueProduto" name="estoqueProduto" placeholder="Quantidade em estoque do produto" required ng-model="Estoque" />
+                        </div>
+                        <div class="form-group">
+                            <input type="url" class="form-control" id="urlProduto" name="urlProduto" placeholder="Imagem do produto" ng-model="Url" />
+                        </div>
+                        <div id="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control input-lg" placeholder="Pesquisar imagem no flickr" ng-model="TextoPesquisa" />
+                                <span class="input-group-btn" style="padding-bottom:10px;">
+                                    <button class="btn btn-info btn-lg" type="button" ng-click="PesquisarImagem()">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            @*<div class="slider multiple-items slider-flickr" style="position:absolute;top:130px;left:-300px;width:300px;height:300px;z-index:1000;"></div>*@
+                            <div class="slider multiple-items slider-flickr" style="position:absolute;top:460px;left:140px;width:300px;height:300px;z-index:1000;"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="valorProduto" name="valorProduto" placeholder="Valor do produto" required ng-model="Valor" />
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="descricaoProduto" name="descricaoProduto" placeholder="Descrição do produto" ng-model="Descricao"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="registroProduto" id="registroProduto" class="btn btn-primary btn-lg" value="Salvar" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container col-md-6">
+        <div class="col-md-12">
+            <div class="col-md-4">
+                <img src="@Model.Url" style="max-height:100px;max-width:100px" />
+            </div>
+            <div class="col-md-8">
+                <span class="col-md-12">
+                    <label> Nome:</label> "@Model.Nome"
+                </span>
+                <span class="col-md-12">
+                    <label>Descrição:</label> "@Model.Descricao"
+                </span>
+                <span class="col-md-12">
+                    <label>Quantidade:</label> @Model.Estoque / @Model.Disponiveis
+                </span>
+                <span class="col-md-12">
+                    <label>
+                        Id:
+                    </label> @Model.Id
+
+                </span>
+            </div>
+        </div>
+    </div>
+}

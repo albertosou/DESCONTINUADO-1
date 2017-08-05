@@ -137,12 +137,33 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\angular-confirm.css" />
+    <Content Include="Content\App\Controller\cadastroUsuarioCtrl.js" />
+    <Content Include="Content\App\Controller\carroLojaCtrl.js" />
+    <Content Include="Content\App\Controller\loginAdminCtrl.js" />
+    <Content Include="Content\App\Controller\loginLojaCtrl.js" />
+    <Content Include="Content\App\Controller\lojaCtrl.js" />
+    <Content Include="Content\App\Controller\mainCtrl.js" />
+    <Content Include="Content\App\Controller\produtoCtrl.js" />
+    <Content Include="Content\App\Service\imagemService.js" />
+    <Content Include="Content\App\Service\produtoService.js" />
+    <Content Include="Content\App\Service\usuarioService.js" />
+    <Content Include="Content\App\App.js" />
+    <Content Include="Content\App\Site.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fonts\slick.svg" />
     <Content Include="Content\Images\default_product.png" />
+    <Content Include="Content\prettify.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\slick-theme.css" />
+    <Content Include="Content\slick.css" />
+    <Content Include="Content\trirand\ui.jqgrid-bootstrap.css" />
+    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Content\ajax-loader.gif" />
     <Content Include="Scripts\angular-1.6.4\angular-animate.js" />
     <Content Include="Scripts\angular-1.6.4\angular-animate.min.js" />
     <Content Include="Scripts\angular-1.6.4\angular-aria.js" />
@@ -171,33 +192,36 @@
     <Content Include="Scripts\angular-1.6.4\angular.js" />
     <Content Include="Scripts\angular-1.6.4\angular.min.js" />
     <Content Include="Scripts\angular-1.6.4\version.txt" />
-    <Content Include="Scripts\App\Controller\cadastroUsuarioCtrl.js" />
-    <Content Include="Scripts\App\Controller\carroLojaCtrl.js" />
-    <Content Include="Scripts\App\Controller\loginAdminCtrl.js" />
-    <Content Include="Scripts\App\Controller\loginLojaCtrl.js" />
-    <Content Include="Scripts\App\Controller\lojaCtrl.js" />
-    <Content Include="Scripts\App\Controller\mainCtrl.js" />
-    <Content Include="Scripts\App\Service\usuarioService.js" />
-    <Content Include="Scripts\App\_App.js" />
-    <Content Include="Scripts\App\_Site.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\fonts\slick.eot" />
+    <Content Include="Content\fonts\slick.ttf" />
+    <Content Include="Content\fonts\slick.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-confirm.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-migrate-1.2.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\prettify\prettify.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\slick.js" />
+    <Content Include="Scripts\slick.min.js" />
+    <Content Include="Scripts\trirand\i18n\grid.locale-pt-br.js" />
+    <Content Include="Scripts\trirand\src\jquery.jqGrid.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\BackEnd\Login.cshtml" />
@@ -221,6 +245,7 @@
     <Compile Include="Controllers\FrontEndController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LojaController.cs" />
+    <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -248,6 +273,7 @@
     <Content Include="Scripts\angular-1.6.4\errors.json" />
     <Content Include="Scripts\angular-1.6.4\version.json" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\BackEnd\Produto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -260,6 +286,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ProjetoPocItauAlbertoSouza.BLL\ProjetoPocItauAlbertoSouza.BLL.csproj">
+      <Project>{cfd5b50a-353a-4590-b9bb-21fa45813091}</Project>
+      <Name>ProjetoPocItauAlbertoSouza.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProjetoPocItauAlbertoSouza.Model\ProjetoPocItauAlbertoSouza.Model.csproj">
       <Project>{ab5787c2-ddf2-443d-b4ce-08dfa12b7533}</Project>
       <Name>ProjetoPocItauAlbertoSouza.Model</Name>

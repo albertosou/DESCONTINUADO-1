@@ -1,16 +1,32 @@
-﻿var pocApp = angular.module('pocApp', []);
+﻿angular.module('pocApp', []).run(['$rootScope', function ($rootScope) {
 
-//$rootScope.defaulErrorCallback = function ($data) {
+    $rootScope.defaulErrorCallback = function ($err)
+    {
+        $('.dropdown', document).click();
 
-//    var configHandler = {
-//        TituloModal: "Deslogar da Loja",
-//        MensagemModal: "Tem certeza que deseja sair?",
-//        OK: function () {
-//            $scope.usuarioLogado = false;
-//        },
+        var TituloModal = "Erro interno";
+        var MensagemModal = "Erro inesperado";
+        var Tipo = "ERROR";
 
-//        Tipo: "CONFIRM"
-//    };
-
-//    $rootScope.$broadcast("ShowModal", configHandler);
-//};
+        if ($err["statusText"]) {
+            TituloModal = $err["statusText"];
+            if ($err.data["ExceptionMessage"]) {
+                //Potencial erro no core
+                MensagemModal = $err.data["ExceptionMessage"];
+            } else if ($err.data["Message"]) {
+                //Potencial erro mapeado em badRequest
+                MensagemModal = $err.data["Message"];
+            }
+        }
+        var configHandler = {
+            TituloModal: TituloModal,
+            MensagemModal: MensagemModal,
+            OK: function () {
+                $(".modal-backdrop").remove();
+                $("#pocModal").modal('hide');
+            },
+            Tipo: Tipo
+        };
+        $rootScope.$broadcast("ShowModal", configHandler);
+    };
+}])

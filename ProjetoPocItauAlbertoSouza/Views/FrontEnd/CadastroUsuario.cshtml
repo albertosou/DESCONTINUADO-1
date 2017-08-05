@@ -1,22 +1,22 @@
-﻿<div ng-controller="carroLojaCtrl" class="modal fade" id="registro-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+﻿<div ng-controller="cadastroUsuarioCtrl" class="modal fade" id="registro-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="registromodal-container">
             <h1>Cadastro</h1><br>
-            <form class="form" role="form" accept-charset="UTF-8" id="login-nav" ng-submit="Cadastrar()">
+            <form class="form" role="form" accept-charset="UTF-8" id="cadastro-usuario" ng-submit="Cadastrar()">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="txtNomeCadastro" placeholder="Nome Usuário" required ng-model="nome">
+                    <input type="text" class="form-control" id="nomeCadastro" name="nomeCadastro" placeholder="Nome Usuário" required ng-model="Nome">      
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" id="txtEmailCadastro" placeholder="Endereço de e-mail" required ng-model="email">
+                    <input type="email" class="form-control" id="emailCadastro" name="emailCadastro" placeholder="Endereço de e-mail" required ng-model="Email">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" id="txtSenhaCadastro" placeholder="Senha" required ng-model="senha">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Senha" required ng-model="Senha">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" id="txtSenhaConfirmaCadastro" placeholder="Confirmar Senha" required ng-model="senhaConfirma">
+                    <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="Confirmar Senha" required equalTo="#password" ng-model="ConfirmaSenha">
                 </div>
                 <div class="form-group">
-                    <input type="submit" name="registro" class="registro registromodal-submit" value="Registro">
+                    <input type="submit" name="registro" class="btn btn-primary btn-lg" value="Registro">
                 </div>
             </form>
         </div>

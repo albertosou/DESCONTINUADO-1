@@ -3,6 +3,39 @@
     padding-bottom: 20px;
 }
 
+/*.navbar-inverse {
+  background-color: rgba(130, 137, 158, 0.69);
+  border-color: #8c7d7f;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-brand:focus {
+    color: rgba(70, 130, 47, 0.98);
+    background-color: transparent;
+}*/
+
+
+.slider {
+    width: 50%;
+    margin: 100px auto;
+}
+
+.slick-slide {
+    margin: 0px 20px;
+}
+
+.slick-slide img {
+    
+    min-width:200px;
+    min-height:200px;
+    max-width:300px;
+    max-height:300px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: black;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -12,7 +45,8 @@
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
-textarea {
+textarea,
+button {
     max-width: 280px;
 }
 
@@ -99,6 +133,11 @@ textarea {
         background-color: inherit;
         border-top:0 none;
     }
+}
+
+.custom-invalid 
+{
+    background-color:palevioletred;
 }
 
 

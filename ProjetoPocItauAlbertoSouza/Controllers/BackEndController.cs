@@ -15,5 +15,17 @@ namespace ProjetoPocItauAlbertoSouza.Controllers
 
             return View();
         }
+
+        public ActionResult Produto(int? id)
+        {
+            ViewBag.Title = "Back End";
+            Model.Produto produto = null;
+            if (id.HasValue)
+            {
+                var @return = new BLL.bllProduto().Consultar(new Model.Produto { Id = id.Value });
+                produto = @return.First();
+            }
+            return View(produto);
+        }
     }
 }

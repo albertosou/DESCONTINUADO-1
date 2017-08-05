@@ -1,1 +1,11 @@
-﻿
+﻿@{
+    ViewBag.Title = "Admin";
+}
+
+<div class="jumbotron">
+    <div ng-include="'/BackEnd/Login'"></div>
+</div>
+<div class="panel-body">
+    <span ng-include="'/FrontEnd/CadastroUsuario'"></span>
+    <span ng-include="'/BackEnd/Produto'"></span>
+</div>
