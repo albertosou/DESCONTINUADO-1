@@ -6,6 +6,36 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        .toggler {
+            width: 500px;
+            height: 200px;
+            position: relative;
+        }
+
+        #button {
+            padding: .5em 1em;
+            text-decoration: none;
+        }
+
+        #effect {
+            width: 240px;
+            height: 170px;
+            padding: 0.4em;
+            position: relative;
+        }
+
+            #effect h3 {
+                margin: 0;
+                padding: 0.4em;
+                text-align: center;
+            }
+
+        .ui-effects-transfer {
+            border: 2px dotted gray;
+        }
+    </style>
 </head>
 <body ng-controller="mainCtrl">
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -41,7 +71,7 @@
 
         <button type="button" class="btn btn-default" ng-click="showModal()">ShowModal</button>
         <!-- Modal -->
-        <div class="modal fade" id="pocModal" role="dialog">
+        <div id="pocModal" class="modal fade"  role="dialog">
             <div class="modal-dialog">
 
                 <!-- Modal content-->
@@ -71,6 +101,7 @@
     @Scripts.Render("~/bundles/angularjs_app")
     @Scripts.Render("~/bundles/js")
     @Scripts.Render("~/bundles/bootstrap")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

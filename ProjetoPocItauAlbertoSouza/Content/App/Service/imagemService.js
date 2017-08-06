@@ -8,7 +8,9 @@
         }
         var configFlickr = {
             method: "flickr.photos.search",
-            api_key: "1eabbbf9186679ef2e3ed62816de193d",
+            api_key: "c6e4cc2bfc28263ddfd6e00451a09c61",
+            //api_sig: "bda49bb72202ae5b2b440793e981cdf8",
+            //auth_token: "72157684540378491-95fada582b3aec7a",
             format: "json",
             text: "produto",
             per_page: 8,
@@ -29,6 +31,12 @@
         }
         
         /* exemplo
+        https://www.flickr.com/services/api/explore/flickr.photos.search
+
+        quando a chave expirar tem que usar uma nova
+        
+
+        https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=c6e4cc2bfc28263ddfd6e00451a09c61&text=teste&format=json&nojsoncallback=1&auth_token=72157684540378491-95fada582b3aec7a&api_sig=bda49bb72202ae5b2b440793e981cdf8
         https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=1eabbbf9186679ef2e3ed62816de193d&text=banana&format=json&nojsoncallback=1&page=2
         */
 

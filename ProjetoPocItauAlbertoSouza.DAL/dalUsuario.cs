@@ -20,7 +20,7 @@ namespace ProjetoPocItauAlbertoSouza.DAL
         public List<Model.Usuario> Consultar(Model.Usuario usuario)
         {
             var @return = new List<Model.Usuario>();
-            base.AddParameter("@ID_USUARIO", usuario.Id);
+            base.AddParameter("@ID_USUARIO", usuario.IdUsuario);
             base.AddParameter("@EMAIL", usuario.Email);
             base.AddParameter("@NOME", usuario.Nome);
 
@@ -30,7 +30,7 @@ namespace ProjetoPocItauAlbertoSouza.DAL
             {
                 var i = new Model.Usuario
                 {
-                    Id = Convert.ToInt32( dr["ID_USUARIO"]),
+                    IdUsuario = Convert.ToInt32( dr["ID_USUARIO"]),
                     Email = dr["EMAIL"].ToString(),
                     Nome = dr["NOME"].ToString(),
                     Senha = dr["SENHA"].ToString(),

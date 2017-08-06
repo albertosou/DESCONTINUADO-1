@@ -8,7 +8,7 @@
             },
         TituloModal: "TODO: Titulo da Janela",
         MensagemModal: "TODO: Mensagem da Janela",
-        Tipo: "ALERTA" //"SUCESSO,ERRO"
+        Tipo: "ALERT" //"SUCESSO,ERRO"
     };
 
 

@@ -11,7 +11,7 @@ namespace ProjetoPocItauAlbertoSouza.DAL
         public int Incluir(Model.Produto produto)
         {
             base.AddParameter("@NOME", produto.Nome);
-            base.AddParameter("@DESCRICAO", produto.Nome);
+            base.AddParameter("@DESCRICAO", produto.Descricao);
             base.AddParameter("@VALOR", produto.Valor);
             base.AddParameter("@ESTOQUE", produto.Estoque);
             base.AddParameter("@URL", produto.Url);
@@ -22,7 +22,7 @@ namespace ProjetoPocItauAlbertoSouza.DAL
         public List<Model.Produto> Consultar(Model.Produto produto)
         {
             var @return = new List<Model.Produto>();
-            base.AddParameter("@ID_PRODUTO", produto.Id);
+            base.AddParameter("@ID_PRODUTO", produto.IdProduto);
             base.AddParameter("@NOME", produto.Nome);
             var dr = base.ExecutarLeitura("PRC_PRODUTO_CONSULTAR");
 
@@ -30,7 +30,7 @@ namespace ProjetoPocItauAlbertoSouza.DAL
             {
                 var i = new Model.Produto
                 {
-                    Id = Convert.ToInt32( dr["ID_PRODUTO"]),
+                    IdProduto = Convert.ToInt32( dr["ID_PRODUTO"]),
                     Nome = dr["NOME"].ToString(),
                     Descricao = dr["DESCRICAO"] is DBNull ? null : dr["DESCRICAO"].ToString(),
                     Valor = Convert.ToDouble(dr["VALOR"]),
@@ -46,9 +46,9 @@ namespace ProjetoPocItauAlbertoSouza.DAL
 
         public int Alterar(Model.Produto produto)
         {
-            base.AddParameter("@ID_PRODUTO", produto.Id);
+            base.AddParameter("@ID_PRODUTO", produto.IdProduto);
             base.AddParameter("@NOME", produto.Nome);
-            base.AddParameter("@DESCRICAO", produto.Nome);
+            base.AddParameter("@DESCRICAO", produto.Descricao);
             base.AddParameter("@VALOR", produto.Valor);
             base.AddParameter("@ESTOQUE", produto.Estoque);
             base.AddParameter("@URL", produto.Url);
@@ -57,7 +57,7 @@ namespace ProjetoPocItauAlbertoSouza.DAL
         }
         public int Excluir(Model.Produto produto)
         {
-            base.AddParameter("@ID_PRODUTO", produto.Id);
+            base.AddParameter("@ID_PRODUTO", produto.IdProduto);
           
             return base.ExecutarSemConsulta("PRC_PRODUTO_EXCLUIR");
         }

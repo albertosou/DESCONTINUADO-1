@@ -2,7 +2,7 @@
 {
     public class Produto
     {
-        public int Id { get; set; }
+        public int IdProduto { get; set; }
         public int IdUsuario { get; set; }
 
         public string Nome { get; set; }

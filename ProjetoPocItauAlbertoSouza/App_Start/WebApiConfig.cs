@@ -22,6 +22,12 @@ namespace ProjetoPocItauAlbertoSouza
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi_Produto",
+            //    routeTemplate: "api/{controller}/{action}/{produto}",
+            //    defaults: new { action= RouteParameter.Optional, produto = RouteParameter.Optional }
+            //);
         }
     }
 }

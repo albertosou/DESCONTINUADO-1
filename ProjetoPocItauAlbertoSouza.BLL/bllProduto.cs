@@ -57,7 +57,7 @@ namespace ProjetoPocItauAlbertoSouza.BLL
             {
                 using (var dal = new DAL.dalUsuario())
                 {
-                    var pesquisa = dal.Consultar(new Model.Usuario { Id = idUsuario });
+                    var pesquisa = dal.Consultar(new Model.Usuario { IdUsuario = idUsuario });
                     if (pesquisa.Any(p => p.Administra))
                     {
                         return true;

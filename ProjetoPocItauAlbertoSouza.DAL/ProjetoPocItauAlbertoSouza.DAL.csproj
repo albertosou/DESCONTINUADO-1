@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dalCarrinho.cs" />
+    <Compile Include="dalPedido.cs" />
     <Compile Include="dalProduto.cs" />
     <Compile Include="dalUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -16,8 +16,8 @@ namespace ProjetoPocItauAlbertoSouza.Controllers
         {
             try
             {
-                usuario.Id = new BLL.bllUsuario().Incluir(usuario);
-                if (usuario.Id > 0)
+                usuario.IdUsuario = new BLL.bllUsuario().Incluir(usuario);
+                if (usuario.IdUsuario > 0)
                 {
                     return Ok(usuario);
                 }

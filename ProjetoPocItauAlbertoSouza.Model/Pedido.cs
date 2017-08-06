@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjetoPocItauAlbertoSouza.Model
+{
+    public class Pedido : ItemCarrinho
+    {
+        public int IdPedido { get; set; }
+        public string Status { get; set; }
+        public double ValorTransacao { get; set; }
+    }
+}

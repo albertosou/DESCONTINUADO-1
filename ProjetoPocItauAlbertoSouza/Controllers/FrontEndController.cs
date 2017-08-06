@@ -24,5 +24,10 @@ namespace ProjetoPocItauAlbertoSouza.Controllers
         {
             return View();
         }
+        // GET: Pedido
+        public ActionResult Pedido()
+        {
+            return View();
+        }
     }
 }

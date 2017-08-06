@@ -29,7 +29,7 @@
                 }
             }
             if (validado === true) {
-                $scope.Id = model.Id;
+                $scope.IdUsuario = model.IdUsuario;
                 $scope.Nome = model.Nome;
                 $scope.Senha = null;
                 $scope.Email = null;

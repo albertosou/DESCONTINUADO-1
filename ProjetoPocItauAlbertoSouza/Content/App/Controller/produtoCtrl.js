@@ -3,7 +3,7 @@
     $scope.IdProduto = 0;
 
     $scope.$on("AdminEntrou", function ($event, $request) {
-        $scope.IdUsuario = $request.Id;
+        $scope.IdUsuario = $request.IdUsuario;
     });
 
     $scope.PesquisarImagem = function (model) {
@@ -87,28 +87,40 @@
         });
     };
     $scope.Atualizar = function () {
-
-        try {
-            $('.slider-flickr').slick('unslick');
-            $('.slider-flickr').html(null);
-        } catch (err) { }
-
         $("#jqGrid").trigger('reloadGrid');
     };
     $scope.Novo = function () {
 
         try {
             $('.slider-flickr').slick('unslick');
+        } catch (err) { }
+        try {
             $('.slider-flickr').html(null);
         } catch (err) { }
 
-        $scope.IdProduto = null;
+        $scope.IdProduto = '';
+        $scope.TextoPesquisa = '';
+        $scope.Nome = '';
+        $scope.Estoque = '';
+        $scope.Valor = '';
+        $scope.Descricao = '';
+        $scope.Url = '';
+
         $("#registro-produto-modal").modal('show');
     };
     $scope.Editar = function () {
 
+        try {
+            $('.slider-flickr').slick('unslick');
+        } catch (err) { }
+
+        try {
+            $('.slider-flickr').html(null);
+        } catch (err) { }
+
         var data = $("#jqGrid").jqGrid('getRowData', $scope.IdProduto);
 
+        $scope.TextoPesquisa = '';
         $scope.Nome = data.Nome;
         $scope.Estoque = parseInt(data.Estoque);
         $scope.Url = data.Url;
@@ -120,7 +132,7 @@
     $scope.Salvar = function () {
 
         var model = {
-            Id: $scope.IdProduto,
+            IdProduto: $scope.IdProduto,
             IdUsuario: $scope.IdUsuario,
             Nome: $scope.Nome,
             Estoque: $scope.Estoque,
@@ -153,7 +165,7 @@
             Sim: function () {
                 $(".modal-backdrop").remove();
                 $("#pocModal").modal('hide');
-                var model = { Id: $scope.IdProduto, IdUsuario: $scope.IdUsuario };
+                var model = { IdProduto: $scope.IdProduto, IdUsuario: $scope.IdUsuario };
                 produtoService.Excluir(model, function () {
                     $("#jqGrid").trigger('reloadGrid');
                 });
@@ -181,14 +193,18 @@
         function formatterMap(cellvalue, options, rowObject) {
             $scope.gridData.push(rowObject);
             var code = ' ';
-            code += '<a href="javascript:Editar_Carrinho(' + rowObject.Id + ')"><span class="glyphicon glyphicon-pencil"></span></a> ';
-            code += '<a href="javascript:Excluir_Carrinho(' + rowObject.Id + ')"><span class="glyphicon glyphicon-trash"></span></a>';
+            code += '<a href="javascript:Editar_Item(' + rowObject.IdProduto + ')"><span class="glyphicon glyphicon-pencil"></span></a> ';
+            code += '<a href="javascript:Excluir_Item(' + rowObject.IdProduto + ')"><span class="glyphicon glyphicon-trash"></span></a>';
             return code;
         }
+
 
         $("#jqGrid").jqGrid({
             url: 'api/Produto' + campo,
             mtype: "GET",
+            beforeProcessing: function (data) {
+                return data;
+            },
             dataType: "json",
             autowidth: true,
             colNames: ["", "Nome", "Estoque", "Valor", "", "", "", ""],
@@ -197,7 +213,7 @@
                 { name: 'Nome', width: 150 },
                 { name: 'Estoque', width: 150 },
                 { name: 'Valor', width: 150 },
-                { name: 'Id', key: true, hidden: true, viewable: true },
+                { name: 'IdProduto', key: true, hidden: true, viewable: true },
                 { name: 'Url', hidden: true, viewable: true },
                 { name: 'Descricao', hidden: true, viewable: true },
                 { name: 'Disponiveis', hidden: true, viewable: true }
@@ -206,9 +222,9 @@
             gridComplete: function () {
                 //$(document).data("gridData", $scope.gridData);
             },
-            loadonce: false,
+            loadonce: true,
             height: 250,
-            rowNum: 15,
+            rowNum: 8,
             subGrid: true, // set the subGrid property to true to show expand buttons for each row
             subGridRowExpanded: showChildGrid, // javascript function that will take care of showing the child grid
             pager: "#jqGridPager"

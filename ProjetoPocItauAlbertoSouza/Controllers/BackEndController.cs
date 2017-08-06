@@ -22,7 +22,7 @@ namespace ProjetoPocItauAlbertoSouza.Controllers
             Model.Produto produto = null;
             if (id.HasValue)
             {
-                var @return = new BLL.bllProduto().Consultar(new Model.Produto { Id = id.Value });
+                var @return = new BLL.bllProduto().Consultar(new Model.Produto { IdProduto = id.Value });
                 produto = @return.First();
             }
             return View(produto);

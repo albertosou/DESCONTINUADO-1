@@ -1,31 +1,17 @@
 ﻿@{
     ViewBag.Title = "Loja";
 }
-<div ng-controller="lojaCtrl" class="panel panel-default">
+
+<div ng-controller="lojaCtrl" class="panel panel-default" ng-init="Pesquisar()">
     <div class="panel-heading">
         <nav class="navbar navbar-default navbar-inverse" role="navigation">
             <div class="container-fluid">
-
-                <form class="col-md-1 navbar-form navbar-left">
-                    <div id="custom-search-input">
-                        <div class="input-group col-md-12">
-                            <span class="input-group-btn input-lg " >
-                                <button class="btn btn-info btn-lg " type="button" style="border-left-width: 0px;">
-                                    <i class="glyphicon glyphicon-gift"></i>
-                                </button>
-                            </span>
-                        </div>
-                    </div>
-                </form>
-
-
-
                 <form class="col-md-8 navbar-form navbar-left" style="width:600px;" role="search">
                     <div id="custom-search-input">
                         <div class="input-group col-md-12">
-                            <input type="text" class="form-control input-lg" placeholder="Pesquisar" />
+                            <input type="text" class="form-control input-lg" placeholder="Pesquisar" ng-model="TextoPesquisa" />
                             <span class="input-group-btn">
-                                <button class="btn btn-info btn-lg" type="button">
+                                <button class="btn btn-info btn-lg" type="button" ng-click="Pesquisar()">
                                     <i class="glyphicon glyphicon-search"></i>
                                 </button>
                             </span>
@@ -37,10 +23,84 @@
         </nav>
 
 
+        <div class="well well-sm">
+            <strong>Categoria</strong>
+            <div class="btn-group">
+                <a href="#" id="ver_list" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-th-list">
+                    </span>Lista
+                </a> <a href="#" id="ver_grid" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-th"></span>Grade
+                </a>
+                <a href="#" id="sort_preco" class="btn btn-default btn-sm" ng-click="sortBy('Valor');">
+                    <span ng-class="{ 'glyphicon glyphicon-unchecked': (propertyName !== 'Valor'), 'glyphicon glyphicon-collapse-down': (propertyName === 'Valor' && reverse === false), 'glyphicon glyphicon-collapse-up': (propertyName === 'Valor' && reverse !== false) }"></span>Preço
+                </a>
+                <a href="#" id="sort_nome" class="btn btn-default btn-sm" ng-click="sortBy('Nome');">
+                    <span ng-class="{ 'glyphicon glyphicon-unchecked': (propertyName !== 'Nome'), 'glyphicon glyphicon-collapse-down': (propertyName === 'Nome' && reverse === false), 'glyphicon glyphicon-collapse-up': (propertyName === 'Nome' && reverse !== false) }"></span>Nome
+                </a>
+                <a href="#" id="carrinho" class="btn btn-default btn-sm" ng-click="AbrirCarrinho()">
+                    <span class="glyphicon glyphicon-shopping-cart"></span>Carrinho {{ TotalItensCarrinho }}
+                </a>
+            </div>
+        </div>
+        <div id="products" class="row list-group">
+            <div ng-repeat="model in Produtos | orderBy:propertyName:reverse" class="item  col-xs-4 col-lg-4">
+                <div class="thumbnail"  >
+                    <div style="position:relative;" ng-show="model.Disponiveis == 0">
+                        <img src="~/Content/Images/sold-out.png" style="position:absolute;top:40px;left:40px; opacity:11;" />
+                    </div>
+                    <img ng-src='{{ model.Url }}'  class="group list-group-image  ui-widget-content ui-corner-all" ng-class="{'produto-esgotado': (model.Disponiveis == 0)}" id="img-prod" alt="" style="width:400px;" />
+
+                    @*<img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />*@
+
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            {{ model.Nome }}
+                        </h4>
+                        <p class="group inner list-group-item-text">
+                            {{ model.Descricao }}
+                        </p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-12 custom-product-list-partial">
+                                <p class="lead">
+                                    {{model.Valor | currency:"R$":0}}
+                                </p>
+                            </div>
+                            <div class="col-xs-12 col-md-12 btn-group-sm custom-product-list-partial">
+                                <a class="btn btn-danger" ng-click="Comprar(model);" ng-disabled="model.Disponiveis == 0">Comprar</a>
+                                <a class="btn btn-success" onclick="AnimacaoCarrinho(this);" ng-click="AdicionarCarrinho(model);" ng-disabled="model.Disponiveis == 0">Incluir na cesta</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="item  col-xs-4 col-lg-4">
+                    <div class="thumbnail">
+                        <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                        <div class="caption">
+                            <h4 class="group inner list-group-item-heading">
+                                Product title
+                            </h4>
+                            <p class="group inner list-group-item-text">
+                                Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                            </p>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <p class="lead">
+                                        $21.000
+                                    </p>
+                                </div>
+                                <div class="col-xs-12 col-md-6">
+                                    <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
     </div>
-    <div class="panel-body">
-        {{controllerName}}
-        Panel Content
-        <span ng-include="'/FrontEnd/CadastroUsuario'"></span>
-    </div>
+    <span ng-include="'/FrontEnd/CadastroUsuario'"></span>
+    <span ng-include="'/FrontEnd/Carrinho'"></span>
 </div>

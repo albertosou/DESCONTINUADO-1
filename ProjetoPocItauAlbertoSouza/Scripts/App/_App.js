@@ -1,1 +1,0 @@
-﻿var pocApp = angular.module('pocApp', []);

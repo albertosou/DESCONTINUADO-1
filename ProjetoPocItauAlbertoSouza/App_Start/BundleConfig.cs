@@ -15,6 +15,9 @@ namespace ProjetoPocItauAlbertoSouza
 
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
 
+                      /*ui - costomizacao*/
+                      "~/Scripts/jquery-ui.min.js",
+
                       /*slick - costomizacao*/
                       "~/Scripts/slick.min.js",
                       "~/Scripts/jquery-migrate-1.2.1.min.js",

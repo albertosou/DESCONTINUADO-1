@@ -144,6 +144,8 @@
     <Content Include="Content\App\Controller\lojaCtrl.js" />
     <Content Include="Content\App\Controller\mainCtrl.js" />
     <Content Include="Content\App\Controller\produtoCtrl.js" />
+    <Content Include="Content\App\Service\pedidoService.js" />
+    <Content Include="Content\App\Service\carrinhoService.js" />
     <Content Include="Content\App\Service\imagemService.js" />
     <Content Include="Content\App\Service\produtoService.js" />
     <Content Include="Content\App\Service\usuarioService.js" />
@@ -155,6 +157,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fonts\slick.svg" />
     <Content Include="Content\Images\default_product.png" />
+    <Content Include="Content\Images\sold-out.png" />
     <Content Include="Content\prettify.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\slick-theme.css" />
@@ -209,6 +212,8 @@
     <Content Include="Scripts\jquery-confirm.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -242,9 +247,11 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BackEndController.cs" />
+    <Compile Include="Controllers\CarrinhoController.cs" />
     <Compile Include="Controllers\FrontEndController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LojaController.cs" />
+    <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -274,6 +281,7 @@
     <Content Include="Scripts\angular-1.6.4\version.json" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\BackEnd\Produto.cshtml" />
+    <Content Include="Views\FrontEnd\Pedido.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
