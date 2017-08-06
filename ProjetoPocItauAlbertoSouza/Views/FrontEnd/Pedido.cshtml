@@ -1,7 +1,73 @@
-﻿
-@{
-    ViewBag.Title = "Pedido";
-}
+﻿<div ng-controller="pedidoCtrl" class="modal fade modal-pedido">
+    <div class="row modal-dialog">
+        <div class="col-xs-8 modal-content" style="padding-top:15px;min-width:700px">
+            <form class="panel panel-info" role="form" id="form-carrinho">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h5><span class="glyphicon glyphicon-shopping-cart"></span> Histórico de compras </h5>
+                            </div>
+                            <div class="col-xs-6">
+                                <select ng-options="item as item.Legenda for item in Transacoes track by item.IdPedido" ng-model="Transacao"></select>
 
-<h2>Pedidos</h2>
-
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div ng-repeat="item in Transacao.Carrinho track by $index">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <img class="img-responsive" ng-src="{{ item.Url }}">
+                            </div>
+                            <div class="col-xs-4">
+                                <h4 class="product-name"><strong>{{ item.Nome }}</strong></h4>
+                                <h4 style="white-space: nowrap;  overflow: hidden; text-overflow: ellipsis;"><small> {{ item.Descricao }}</small></h4>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="col-xs-6 text-right">
+                                    <h6><strong> {{ item.Valor | currency : "R$" : 2 }} </strong></h6>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="input-group">
+                                        <div>{{item.Quantidade}}</div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="text-center">
+                            <div class="col-xs-9">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-model="Transacao.Status" />
+                                </div>
+                            </div>
+                            <div class="col-xs-3">
+                                <button type="button" class="btn btn-default btn-sm btn-block" ng-click="AtualizarStatus(Transacao)">
+                                    Atualizar Status
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="row text-center">
+                        <div class="col-xs-9">
+                            <h4 class="text-right">Total <strong> {{ Transacao.ValorTransacao | currency : "R$" : 2 }}</strong></h4>
+                        </div>
+                        <div class="col-xs-3">
+                            <button type="submit" class="btn btn-success btn-block" ng-click="ConcluirPedido()">
+                                Finalizar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

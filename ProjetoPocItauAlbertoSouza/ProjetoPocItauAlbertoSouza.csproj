@@ -143,6 +143,7 @@
     <Content Include="Content\App\Controller\loginLojaCtrl.js" />
     <Content Include="Content\App\Controller\lojaCtrl.js" />
     <Content Include="Content\App\Controller\mainCtrl.js" />
+    <Content Include="Content\App\Controller\pedidoCtrl.js" />
     <Content Include="Content\App\Controller\produtoCtrl.js" />
     <Content Include="Content\App\Service\pedidoService.js" />
     <Content Include="Content\App\Service\carrinhoService.js" />

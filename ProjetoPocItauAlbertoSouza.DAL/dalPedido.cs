@@ -17,7 +17,7 @@ namespace ProjetoPocItauAlbertoSouza.DAL
         }
         public int Atualizar(Model.Pedido pedido)
         {
-            base.AddParameter("@ID_CARRINHO", pedido.IdPedido);
+            base.AddParameter("@ID_PEDIDO", pedido.IdPedido);
             base.AddParameter("@STATUS", pedido.Status);
 
             return base.ExecutarSemConsulta("PRC_PEDIDO_ATUALIZAR");
@@ -37,6 +37,7 @@ namespace ProjetoPocItauAlbertoSouza.DAL
                     IdProduto = Convert.ToInt32(dr["ID_PRODUTO"]),
                     Nome = dr["NOME"].ToString(),
                     Descricao = dr["DESCRICAO"] is DBNull ? null : dr["DESCRICAO"].ToString(),
+                    Quantidade = Convert.ToInt32(dr["QUANTIDADE"]),
                     Valor = Convert.ToDouble(dr["VALOR"]),
                     ValorTransacao = Convert.ToDouble(dr["VALOR_TRANSACAO"]),
                     Status = dr["STATUS"].ToString(),
@@ -46,7 +47,7 @@ namespace ProjetoPocItauAlbertoSouza.DAL
             }
 
             return @return;
-            
+
         }
     }
 }
