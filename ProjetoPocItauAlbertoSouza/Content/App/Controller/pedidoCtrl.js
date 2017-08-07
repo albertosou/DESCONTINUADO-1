@@ -41,7 +41,9 @@
     };
 
     $scope.$on("NovoCarrinho", function ($event, $dados) {
-        $scope.Init();
+        if ($scope.IdPedido > 0) {
+            $scope.Init();
+        }
     });
 
     $rootScope.$on("ClienteEntrou", function ($event, $dados) {
