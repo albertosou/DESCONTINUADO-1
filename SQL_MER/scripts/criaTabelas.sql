@@ -6,9 +6,10 @@ CREATE TABLE [dbo].TB_PRODUTO (
                 NOME VARCHAR(50) NOT NULL,
                 DESCRICAO VARCHAR(50) NOT NULL,
                 ESTOQUE INT DEFAULT 0 NOT NULL,
-                URL VARCHAR(200) DEFAULT '\Content\Images\default_product.png' NOT NULL,
+                URL VARCHAR(200) DEFAULT '/Content/Images/default_product.png' NOT NULL,
                 VALOR DECIMAL(10,2) DEFAULT 0 NOT NULL,
                 ATIVO BIT DEFAULT 1 NOT NULL,
+				[DESCRICAO] VARCHAR(3000) NULL,
                 CONSTRAINT TB_PRODUTO_PK PRIMARY KEY (ID_PRODUTO)
 )
 
@@ -27,6 +28,7 @@ CREATE TABLE [dbo].TB_PEDIDO (
                 ID_PEDIDO INT IDENTITY NOT NULL,
                 ID_USUARIO INT NOT NULL,
                 STATUS VARCHAR(20) NOT NULL,
+                VALOR DECIMAL(10,2)  NOT NULL,
                 DATA_CADASTRO DATETIME DEFAULT GETDATE() NOT NULL,
                 CONSTRAINT TB_PEDIDO_PK PRIMARY KEY (ID_PEDIDO)
 )
@@ -36,6 +38,7 @@ CREATE TABLE [dbo].TB_PEDIDO_PRODUTO (
                 ID_PEDIDO INT NOT NULL,
                 QUANTIDADE VARCHAR NOT NULL,
                 ID_PRODUTO INT NOT NULL,
+                VALOR DECIMAL(10,2) DEFAULT 0 NOT NULL,
                 CONSTRAINT TB_PEDIDO_PRODUTO_PK PRIMARY KEY (ID_PEDIDO_PRODUTO)
 )
 
