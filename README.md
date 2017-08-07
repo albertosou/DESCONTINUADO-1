@@ -1,7 +1,7 @@
 # ProjetoPocItauAlbertoSouza
 v1\poc
 
-Utilizei para codificar Visual Studio 2015, o banco de dados SQL Server 2016 e para modelagem SQL Power Architect (Community Edition).
+Utilizei para codificar *Visual Studio 2015*, o banco de dados *SQL Server 2016* e para modelagem *SQL Power Architect (Community Edition)*.
 
 O Script de Criação do Banco de Dados está na pasta *./SQL_MER/SCRIPT_DB.sql*.
 
