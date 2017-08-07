@@ -13,5 +13,7 @@ Criei uma regra para atribuíção do *perfil* Administrador (para o cadastro de
 
 Exemplo: 
 ----------------------------------------------------------------------------------
+
 Nome: Alberto Souza (Adm)
+
 Email: nononon@nononon.com
