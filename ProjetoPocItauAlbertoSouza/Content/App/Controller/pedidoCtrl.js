@@ -21,6 +21,10 @@
         });
     }
 
+    $scope.ConcluirPedido = function(){
+        $('.modal-pedido').modal('hide');
+    }
+
     $scope.AtualizarStatus = function ($data14123617) {
         pedidoService.Atualizar({ IdPedido: $data14123617.IdPedido, Status: $data14123617.Status }, function ($data4123414) {
             $scope.Init();
@@ -35,6 +39,10 @@
             return 'R$' + str.split('.')[0] + ',' + str.split('.')[1].substr(0, 2);
         }
     };
+
+    $scope.$on("NovoCarrinho", function ($event, $dados) {
+        $scope.Init();
+    });
 
     $rootScope.$on("ClienteEntrou", function ($event, $dados) {
         if ($dados.IdUsuario) {

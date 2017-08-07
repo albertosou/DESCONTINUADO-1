@@ -31,7 +31,7 @@
                         <div class="form-group">
                             <input type="url" class="form-control" id="urlProduto" name="urlProduto" placeholder="Imagem do produto" ng-model="Url" />
                         </div>
-                        <div id="form-group">
+                        <div id="form-group" style="display:none;">
                             <div class="input-group">
                                 <input type="text" class="form-control input-lg" placeholder="Pesquisar imagem no flickr" ng-model="TextoPesquisa" />
                                 <span class="input-group-btn" style="padding-bottom:10px;">
@@ -42,11 +42,10 @@
                             </div>
                         </div>
                         <div>
-                            @*<div class="slider multiple-items slider-flickr" style="position:absolute;top:130px;left:-300px;width:300px;height:300px;z-index:1000;"></div>*@
-                            <div class="slider multiple-items slider-flickr" style="position:absolute;top:460px;left:140px;width:300px;height:300px;z-index:1000;"></div>
+                              <div class="slider multiple-items slider-flickr" style="position:absolute;top:460px;left:140px;width:300px;height:300px;z-index:1000;"></div>
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" id="valorProduto" name="valorProduto" placeholder="Valor do produto" required ng-model="Valor" />
+                            <input type="text" class="form-control" id="valorProduto" name="valorProduto" placeholder="Valor do produto" required ng-model="Valor" />
                         </div>
                         <div class="form-group">
                             <textarea class="form-control" id="descricaoProduto" name="descricaoProduto" placeholder="Descrição do produto" ng-model="Descricao"></textarea>

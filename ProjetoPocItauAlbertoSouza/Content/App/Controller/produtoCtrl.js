@@ -87,7 +87,14 @@
         });
     };
     $scope.Atualizar = function () {
-        $("#jqGrid").trigger('reloadGrid');
+
+        try {
+            $("#jqGrid").jqGrid('GridUnload');
+            $('#jqgrid_container').remove("#jqGrid");
+            $('#jqgrid_container').html(null);
+            $('#jqgrid_container').html('<table id="jqGrid"></table><div id="jqGridPager"></div>');
+        } catch (e) { }
+        $scope.Load();
     };
     $scope.Novo = function () {
 
@@ -146,12 +153,15 @@
                 $("#jqGrid").trigger('reloadGrid');
                 $(".modal-backdrop").remove();
                 $("#pocModal").modal('hide');
+                $scope.Atualizar();
+
             });
         } else {
             produtoService.Incluir(model, function () {
                 $("#jqGrid").trigger('reloadGrid');
                 $(".modal-backdrop").remove();
                 $("#pocModal").modal('hide');
+                $scope.Atualizar();
             });
         }
 
@@ -198,10 +208,9 @@
             return code;
         }
 
-
         $("#jqGrid").jqGrid({
             url: 'api/Produto' + campo,
-            mtype: "GET",
+            mtype: "POST",
             beforeProcessing: function (data) {
                 return data;
             },
@@ -223,6 +232,7 @@
                 //$(document).data("gridData", $scope.gridData);
             },
             loadonce: true,
+            navOptions: { reloadGridOptions: { fromServer: true } },
             height: 250,
             rowNum: 8,
             subGrid: true, // set the subGrid property to true to show expand buttons for each row
